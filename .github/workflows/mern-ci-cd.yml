@@ -31,17 +31,17 @@ jobs:
       - name: Install backend dependencies
         run: |
           cd server
-          npm ci
+          pnpm ci
       
       - name: Run backend linting
         run: |
           cd server
-          npm run lint
+          pnpm run lint
       
       - name: Run backend tests
         run: |
           cd server
-          npm test
+          pnpm test
         env:
           CI: true
           MONGODB_URI: mongodb://localhost:27017/test
@@ -50,7 +50,7 @@ jobs:
       - name: Build backend
         run: |
           cd server
-          npm run build --if-present
+          pnpm run build --if-present
 
   # Frontend tests and build
   frontend-ci:
@@ -69,24 +69,24 @@ jobs:
       - name: Install frontend dependencies
         run: |
           cd client
-          npm ci
+          pnpm ci
       
       - name: Run frontend linting
         run: |
           cd client
-          npm run lint
+          pnpm run lint
       
       - name: Run frontend tests
         run: |
           cd client
-          npm test
+          pnpm test
         env:
           CI: true
       
       - name: Build frontend
         run: |
           cd client
-          npm run build
+          pnpm run build
       
       - name: Upload frontend build artifact
         uses: actions/upload-artifact@v3
