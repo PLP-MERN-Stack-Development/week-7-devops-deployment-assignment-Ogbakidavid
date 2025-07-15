@@ -31,7 +31,7 @@ export default function Login() {
 
             try {
                 localStorage.setItem("token", res.data.token);
-            } catch (storageErr) {
+            } catch {
                 toast.error("Failed to store token in local storage");
                 return;
             }
