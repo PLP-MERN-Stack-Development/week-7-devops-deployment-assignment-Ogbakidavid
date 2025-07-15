@@ -19,6 +19,10 @@ app.use(helmet());
 app.use(express.json());
 app.use(logger);
 
+app.get('/', (req, res) => {
+    res.json({ message: 'Server is Running 🚀'});
+})
+
 // Health check endpoint
 app.get('/health', (req, res) => {
     res.status(200).json({ status: 'OK', message: 'Server is healthy 🚀'});
